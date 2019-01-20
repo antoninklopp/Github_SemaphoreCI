@@ -1,11 +1,7 @@
 from github import Github
+import sys
 
-# First create a Github instance:
-
-# using username and password
-
-# or using an access token
-g = Github("token")
+g = Github(sys.argv[1])
 
 repo = g.get_user().get_repo("Github_SemaphoreCI")
 print(repo)
