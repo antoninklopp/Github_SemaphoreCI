@@ -8,6 +8,8 @@ agent:
 blocks:
   - name: "Build"
     task:
+      secrets:
+        - name: git_token
       env_vars:
         - name: APP_ENV
           value: prod
@@ -19,6 +21,7 @@ blocks:
           - echo $APP_ENV
           - echo "Docker build..."
           - echo "done"
+          - echo "$TEST_TOKEN"
           - pip install --user -r requirements.txt
           - python simple_script.py "$GIT_TOKEN"
 
